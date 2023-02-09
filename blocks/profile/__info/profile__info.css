@@ -7,7 +7,7 @@
   row-gap: 16px;
   column-gap: 18px;
   align-items: end;
-  max-width: 336px;
+  max-width: 440px;
 }
 
 @media screen and (max-width: 980px) {
@@ -19,7 +19,7 @@
     margin-top: 26px;
     padding-left: 19px;
     row-gap: 14px;
-    max-width: 200px;
+    max-width: 350px;
   }
 }
 
