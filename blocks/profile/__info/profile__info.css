@@ -4,7 +4,7 @@
   grid-template-columns: auto 24px;
   grid-template-areas: "profile__name profile__edit-button"
     "profile__job .";
-  row-gap: 16px;
+  row-gap: 7px;
   column-gap: 18px;
   align-items: end;
   max-width: 440px;
@@ -18,7 +18,6 @@
     margin-left: 14px;
     margin-top: 26px;
     padding-left: 19px;
-    row-gap: 14px;
     max-width: 350px;
   }
 }
@@ -27,5 +26,6 @@
   .profile__info {
     max-width: 250px;
     text-align: center;
+    margin-top: 25.50px;
   }
 }

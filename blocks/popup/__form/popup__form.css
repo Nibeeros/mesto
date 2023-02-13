@@ -1,3 +1,9 @@
 .popup__form {
   position: relative;
 }
+
+@media screen and (max-width: 560px) {
+  .popup__form {
+    margin-top: 67px;
+  }
+}

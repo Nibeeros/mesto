@@ -7,7 +7,7 @@
   object-fit: contain;
   cursor: pointer;
   transition: .3s;
-  margin: 0 0 0 auto;
+  margin: 0 0 2px auto;
   padding: 0;
 }
 
@@ -17,8 +17,9 @@
 
 @media screen and (max-width: 768px) {
   .profile__add-button {
-    margin: 36px auto auto;
+    margin: 32px auto auto 4px;
     width: 282px;
     height: 50px;
+    background-size: 16px;
   }
 }
