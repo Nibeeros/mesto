@@ -5,8 +5,8 @@ let closeButton = popupContainer.querySelector('.popup__button-close');
 let profileInfo = document.querySelector('.profile__info');
 let profileName = profileInfo.querySelector('.profile__name');
 let profileJob = profileInfo.querySelector('.profile__job');
-let inputName = popup.querySelector('.popup__input_profile-name');
-let inputJob = popup.querySelector('.popup__input_profile-job');
+let inputName = popup.querySelector('.popup__input_info_name');
+let inputJob = popup.querySelector('.popup__input_info_job');
 let popupForm = popupContainer.querySelector('.popup__form');
 
 function closePopup() {

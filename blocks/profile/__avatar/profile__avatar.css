@@ -4,3 +4,9 @@
   height: 120px;
   object-fit: cover;
 }
+
+@media screen and (max-width: 768px) {
+  .profile__avatar {
+    padding-left: 3px;
+  }
+}
