@@ -1,8 +1,6 @@
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
-const popupEditButtonClose = document.querySelector('.popup__edit-button-close');
-const popupAddButtonClose = document.querySelector('.popup__add-button-close');
-const popupImageButtonClose = document.querySelector('.popup__image-button-close');
+const closeButtons = document.querySelectorAll('.popup__button-close');
 const editPopup = document.querySelector('.popup_edit-profile');
 const addPopup = document.querySelector('.popup_add-card');
 const imagePopup = document.querySelector('.popup_image');
@@ -92,17 +90,10 @@ addButton.addEventListener('click', () => {
   openPopup(addPopup)
 });
 
-popupEditButtonClose.addEventListener('click', () => {
-  closePopup(editPopup)
-})
-
-popupAddButtonClose.addEventListener('click', () => {
-  closePopup(addPopup)
-})
-
-popupImageButtonClose.addEventListener('click', () => {
-  closePopup(imagePopup)
-})
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 editform.addEventListener('submit', editFormSubmitHandler);
 addform.addEventListener('submit', addFormSubmitHandler);
