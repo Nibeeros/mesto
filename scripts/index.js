@@ -1,5 +1,5 @@
 import FormValidator from "./FormValidator.js";
-import Card from "./Сard.js";
+import Card from "./Card.js";
 
 // объявление переменных
 const buttonOpenEditProfilePopup = document.querySelector(
