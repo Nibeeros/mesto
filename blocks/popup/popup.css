@@ -10,4 +10,7 @@
   opacity: 0;
   transition: visibility 0.5s, opacity 0.5s linear;
   transition: all .4s ease 0s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

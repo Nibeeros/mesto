@@ -155,35 +155,20 @@ buttonOpenEditProfilePopup.addEventListener("click", () => {
   formValidators["edit-profile"].disableButton();
 });
 
-//слушатель закрытие попапа профиля
-buttonCloseEditProfilePopup.addEventListener("click", () => {
-  closePopup(popupProfile);
-});
-
 //слушатель кнопка сохранить в попапе профиля
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 // слуштель открытие попапа добавления карточки
 popupBtnOpenCard.addEventListener("click", () => {
-  clearCardForm();
+  formElementCard.reset();
   openPopup(popupCard);
   formValidators["edit-card"].disableButton();
-});
-
-// слушатель закрытие попапа добавления карточки
-popupBtnCloseCard.addEventListener("click", () => {
-  closePopup(popupCard);
 });
 
 // слушатель кнопка сохранить формы добавления карточки
 formElementCard.addEventListener("submit", handleProfileFormSubmitCard);
 
-// слушатель закрытие попапа с картинкой
-popupImgClose.addEventListener("click", () => {
-  closePopup(popupImg);
-});
-
-// слушатель закрытия попапа по темной области
+// слушатель закрытия попапа по темной области и закрытия по кнопке
 // каждому попапу навешиваем слушатль
 
 popupContainers.forEach((item) => {
@@ -192,6 +177,8 @@ popupContainers.forEach((item) => {
       closePopup(item);
     }
   });
+  const closeButton = item.querySelector('.popup__close');  // Найдем кнопку закрытия текущего попапа
+  closeButton.addEventListener("click", () => closePopup(item));  // Установим слушатель
 });
 
 function closeByEscape(evt) {

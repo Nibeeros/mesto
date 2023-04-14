@@ -1,7 +1,6 @@
 .popup__title {
-  margin-top: 34px;
   margin-left: 36px;
-  margin-bottom: 0;
+  margin: 0;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -15,8 +14,5 @@
   .popup__title {
     font-size: 18px;
     line-height: 22px;
-    margin-left: 0;
-    margin-top: 25px;
-    align-self: center;
   }
 }

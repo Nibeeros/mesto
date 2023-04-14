@@ -49,8 +49,6 @@ export default class FormValidator {
   };
 
   _setEventListeners = () => {
-    this._toggleButtonState(this._inputList, this._submitButton);
-
     // Обойдём все элементы полученной коллекции
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {

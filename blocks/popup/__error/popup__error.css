@@ -1,6 +1,6 @@
 .popup__error {
   display: block;
-  max-width: 358px;
+  /* max-width: 358px; */
   min-height: 30px;
   font-style: normal;
   font-weight: 400;
