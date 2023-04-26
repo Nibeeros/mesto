@@ -63,7 +63,6 @@ cardImagePopup.setEventListeners();
 
 const section = new Section(
   {
-    data: initialCards,
     renderer: (item) => {
       const card = createCard(item.name, item.link);
       section.addItem(card);
@@ -71,7 +70,7 @@ const section = new Section(
   },
   cardsContainer
 );
-section.renderer();
+section.renderItems(initialCards);
 
 function createCard(name, link) {
   const card = new Card(

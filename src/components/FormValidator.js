@@ -11,19 +11,21 @@ export default class FormValidator {
   }
 
   // Функция, которая проверяет валидность поля, внутри вызывает функцию showInputError или hideInputError
-  _isValid = () => {
+  _isValid = (formElement, inputElement, _settings) => {
     if (!inputElement.validity.valid) {
       this._showInputError(
+        formElement,
         inputElement,
-        inputElement.validationMessage
+        inputElement.validationMessage,
+        _settings
       );
     } else {
-      this._hideInputError();
+      this._hideInputError(formElement, inputElement, _settings);
     }
   };
 
   // Функция, которая добавляет класс с ошибкой
-  _showInputError = () => {
+  _showInputError = (_formElement, inputElement, errorMessage) => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}`);
     inputElement.classList.add(this._settings.inputErrorClass);
     errorElement.classList.add(this._settings.errorClass);
@@ -31,7 +33,7 @@ export default class FormValidator {
   };
 
   // Функция, которая удаляет класс с ошибкой
-  _hideInputError = () => {
+  _hideInputError = (_formElement, inputElement) => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}`);
 
     inputElement.classList.remove(this._settings.inputErrorClass);
@@ -47,11 +49,13 @@ export default class FormValidator {
   };
 
   _setEventListeners = () => {
+    this._toggleButtonState(this._inputList, this._submitButton);
+
     // Обойдём все элементы полученной коллекции
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        this._isValid();
-        this._toggleButtonState();
+        this._isValid(this._formElement, inputElement);
+        this._toggleButtonState(this._inputList, this._submitButton);
       });
     });
   };
@@ -61,9 +65,9 @@ export default class FormValidator {
 
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
-      this.disableButton();
+      this.disableButton(this._submitButton);
     } else {
-      this._enableButton();
+      this._enableButton(this._submitButton);
     }
   };
 

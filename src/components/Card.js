@@ -40,7 +40,7 @@ export default class Card {
 
     // слушатель удаления карточки
     this._deleteBusket.addEventListener("click", () => {
-      this._handleDeleteClick();
+    this._handleDeleteClick();
     });
   }
 
