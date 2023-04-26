@@ -11,21 +11,19 @@ export default class FormValidator {
   }
 
   // Функция, которая проверяет валидность поля, внутри вызывает функцию showInputError или hideInputError
-  _isValid = (formElement, inputElement, _settings) => {
+  _isValid = () => {
     if (!inputElement.validity.valid) {
       this._showInputError(
-        formElement,
         inputElement,
-        inputElement.validationMessage,
-        _settings
+        inputElement.validationMessage
       );
     } else {
-      this._hideInputError(formElement, inputElement, _settings);
+      this._hideInputError();
     }
   };
 
   // Функция, которая добавляет класс с ошибкой
-  _showInputError = (_formElement, inputElement, errorMessage) => {
+  _showInputError = () => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}`);
     inputElement.classList.add(this._settings.inputErrorClass);
     errorElement.classList.add(this._settings.errorClass);
@@ -33,7 +31,7 @@ export default class FormValidator {
   };
 
   // Функция, которая удаляет класс с ошибкой
-  _hideInputError = (_formElement, inputElement) => {
+  _hideInputError = () => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}`);
 
     inputElement.classList.remove(this._settings.inputErrorClass);
@@ -52,7 +50,7 @@ export default class FormValidator {
     // Обойдём все элементы полученной коллекции
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        this._isValid(this._formElement, inputElement);
+        this._isValid();
         this._toggleButtonState();
       });
     });
@@ -63,9 +61,9 @@ export default class FormValidator {
 
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
-      this.disableButton(this._submitButton);
+      this.disableButton();
     } else {
-      this._enableButton(this._submitButton);
+      this._enableButton();
     }
   };
 
