@@ -22,7 +22,6 @@ export default class PopupWithForm extends Popup {
     this._formElement.addEventListener("submit", (event) => {
       event.preventDefault();
       this._submitForm(this._getInputValues());
-      this.close();
     });
   }
 
@@ -31,11 +30,11 @@ export default class PopupWithForm extends Popup {
     this._formElement.reset();
   }
 
-  sabmitBtnSave() {
+  startSaving() {
     this._submitBtn.textContent = "Сохранение...";
   }
 
-  sabmitBtnSaveComplite(text) {
+  setButtonText(text) {
     this._submitBtn.textContent = text;
   }
 }

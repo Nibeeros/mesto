@@ -106,7 +106,7 @@ function createCard(data) {
 const openEditProfilePopup = new PopupWithForm(
   ".popup_edit-profile",
   (inputValues) => {
-    openEditProfilePopup.sabmitBtnSave();
+    openEditProfilePopup.startSaving();
     api.setUserInfo({ name: inputValues.name, job: inputValues.job })
       .then((date) => {
         userInformation.setUserInfo(date.name, date.about);
@@ -114,7 +114,7 @@ const openEditProfilePopup = new PopupWithForm(
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        openEditProfilePopup.sabmitBtnSaveComplite("Сохранить");
+        openEditProfilePopup.setButtonText("Сохранить");
       });
   }
 );
@@ -135,8 +135,9 @@ openEditProfilePopup.setEventListeners();
 const openEditCardPopup = new PopupWithForm(
   ".popup_edit-card",
   (inputValues) => {
-    openEditCardPopup.sabmitBtnSave();
-    const apiAddNewCard = api
+    openEditCardPopup.startSaving();
+    // const apiAddNewCard =
+    api
       .addNewCard({
         name: inputValues.place,
         link: inputValues.link,
@@ -148,7 +149,7 @@ const openEditCardPopup = new PopupWithForm(
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        openEditCardPopup.sabmitBtnSaveComplite("Создать");
+        openEditCardPopup.setButtonText("Создать");
       });
   }
 );
@@ -182,7 +183,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 //обновляем аватар из апи
 
 const avatarPopup = new PopupWithForm(".popup_edit-avatar", (inputValues) => {
-avatarPopup.sabmitBtnSave();
+avatarPopup.startSaving();
 api
   .updateAvatar({ avatar: inputValues.avatar })
   .then((date) => {
@@ -191,7 +192,7 @@ api
   })
   .catch((err) => console.log(err))
   .finally(() => {
-    avatarPopup.sabmitBtnSaveComplite("Сохранить");
+    avatarPopup.setButtonText("Сохранить");
   });
 });
 
